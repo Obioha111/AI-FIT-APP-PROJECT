@@ -32,11 +32,11 @@ const UserForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-100">
-      <div className="w-full max-w-2xl bg-white p-6 rounded-xl shadow-lg space-y-6">
-        <h2 className="text-2xl font-bold text-center text-blue-700">Enter Your Details</h2>
+    <div className="w-full min-h-screen bg-gradient-to-tr from-blue-50 to-white p-4 flex items-center justify-center">
+      <div className="w-full max-w-4xl bg-white shadow-2xl rounded-3xl p-8 md:p-10 space-y-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-700">Personalized Wellness Plan</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormInput
             type="number"
             name="age"
@@ -92,14 +92,14 @@ const UserForm = () => {
           />
         </div>
 
-        <p className="text-center text-sm text-gray-500">
-          Your BMI: <span className="font-semibold">{bmi()}</span>
+        <p className="text-center text-gray-600">
+          <strong>BMI:</strong> {bmi()}
         </p>
 
         <div className="flex justify-center">
           <button
             onClick={handleSubmit}
-            className="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-medium transition"
           >
             Get Recommendations
           </button>
@@ -109,15 +109,6 @@ const UserForm = () => {
           <>
             <div className="printable">
               <RecommendationCard result={result} onReset={() => setResult(null)} />
-            </div>
-
-            <div className="flex justify-center mt-4 no-print">
-              <button
-                onClick={() => window.print()}
-                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-              >
-                Print or Save as PDF
-              </button>
             </div>
           </>
         )}

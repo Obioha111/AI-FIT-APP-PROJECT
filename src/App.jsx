@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SplashScreen from './pages/SplashScreen';
 import UserForm from './pages/UserForm';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 2000); // 2 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="w-full h-full">
       {showSplash ? <SplashScreen /> : <UserForm />}
     </div>
   );
