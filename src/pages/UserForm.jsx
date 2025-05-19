@@ -35,7 +35,7 @@ const UserForm = () => {
     <div className="w-full min-h-screen bg-gradient-to-tr from-green-50 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl bg-white shadow-2xl rounded-3xl p-8 md:p-10 space-y-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700">
-          Personalized Wellness Plan
+          INPUT YOUR INFORMATION
         </h2>
   
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

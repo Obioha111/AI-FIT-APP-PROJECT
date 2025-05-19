@@ -80,19 +80,6 @@ button:focus-visible {
   @apply w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400;
 }
 
-/* Dark mode (optional enhancement) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #e0e0e0;
-    background-color: #1a1a1a;
-  }
-  a:hover {
-    color: #aab6ff;
-  }
-  button {
-    background-color: #333333;
-  }
-}
 
 /* Print-specific styles */
 @media print {
