@@ -20,7 +20,7 @@ const RecommendationCard = ({ result, onReset }) => {
             {result.foodTiming.map((item, idx) => <li key={idx}>{item}</li>)}
           </ul>
         </div>
-        <img src="/images/meal_timing.png" alt="Meal Timing" className="w-20 h-20 object-contain" />
+        <img src="/images/meal.png" alt="Meal Timing" className="w-20 h-20 object-contain" />
       </div>
 
       {/* Workouts Section */}
@@ -43,7 +43,7 @@ const RecommendationCard = ({ result, onReset }) => {
               {result.dietTips.map((tip, idx) => <li key={idx}>{tip}</li>)}
             </ul>
           </div>
-          <img src="/images/diet_tips.png" alt="Diet Tips" className="w-20 h-20 object-contain" />
+          <img src="/images/tips.png" alt="Diet Tips" className="w-20 h-20 object-contain" />
         </div>
       )}
 
