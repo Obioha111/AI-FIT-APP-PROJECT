@@ -32,10 +32,12 @@ const UserForm = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-tr from-blue-50 to-white p-4 flex items-center justify-center">
+    <div className="w-full min-h-screen bg-gradient-to-tr from-green-50 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl bg-white shadow-2xl rounded-3xl p-8 md:p-10 space-y-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-700">Personalized Wellness Plan</h2>
-
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700">
+          Personalized Wellness Plan
+        </h2>
+  
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormInput
             type="number"
@@ -51,7 +53,7 @@ const UserForm = () => {
             options={['male', 'female']}
             placeholder="Gender"
           />
-
+  
           <FormInput
             type="number"
             name="weight"
@@ -66,7 +68,7 @@ const UserForm = () => {
             onChange={handleChange}
             placeholder="Height (cm)"
           />
-
+  
           <FormSelect
             name="activity"
             value={form.activity}
@@ -74,7 +76,7 @@ const UserForm = () => {
             placeholder="Activity Level"
             options={['bedridden', 'light', 'active', 'very-active']}
           />
-
+  
           <FormSelect
             name="goal"
             value={form.goal}
@@ -82,7 +84,7 @@ const UserForm = () => {
             placeholder="Goal"
             options={['lose', 'maintain', 'gain']}
           />
-
+  
           <FormSelect
             name="condition"
             value={form.condition}
@@ -91,30 +93,29 @@ const UserForm = () => {
             options={['none', 'diabetes', 'hypertension']}
           />
         </div>
-
-        <p className="text-center text-gray-600">
+  
+        <p className="text-center text-green-700 font-medium">
           <strong>BMI:</strong> {bmi()}
         </p>
-
+  
         <div className="flex justify-center">
           <button
             onClick={handleSubmit}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-medium transition"
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-semibold transition"
           >
             Get Recommendations
           </button>
         </div>
-
+  
         {result && (
-          <>
-            <div className="printable">
-              <RecommendationCard result={result} onReset={() => setResult(null)} />
-            </div>
-          </>
+          <div className="printable">
+            <RecommendationCard result={result} onReset={() => setResult(null)} />
+          </div>
         )}
       </div>
     </div>
   );
+  
 };
 
 export default UserForm;

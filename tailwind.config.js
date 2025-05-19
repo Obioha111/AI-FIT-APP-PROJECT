@@ -6,6 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        brand: {
+          light: '#e0fce4',
+          DEFAULT: '#38b46f',
+          dark: '#2f9e60',
+        },
+      },
       animation: {
         fadeInUp: "fadeInUp 1s ease-out",
       },
@@ -18,4 +25,4 @@ export default {
     },
   },
   plugins: [],
-}
+};
