@@ -2,90 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure full height at all layout levels */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Base styles */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Default light theme */
 body {
   margin: 0;
-  display: flex;
-  justify-content: center; /* ✅ Horizontal centering */
-  align-items: center;      /* ✅ Vertical centering */
-  min-width: 320px;
-  min-height: 100vh;
-  padding: 1rem;            /* ✅ Spacing on small screens */
-  background-color: #242424;
+  @apply bg-white text-gray-900 flex justify-center items-center p-4;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Link styles */
+a {
+  @apply font-medium text-blue-600 hover:text-blue-800;
 }
 
+/* Button styles */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  @apply rounded-lg border border-transparent px-4 py-2 font-medium transition duration-200;
 }
+
 button:hover {
-  border-color: #646cff;
+  @apply border-blue-500;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Light mode preferences */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* Tailwind utility class for consistent input styling */
+/* Tailwind input utility class */
 .input {
-  @apply w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400;
+  @apply w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500;
 }
-
 
 /* Print-specific styles */
 @media print {
   body {
-    background: white !important;
-    color: black !important;
+    @apply bg-white text-black;
   }
 
   button,
@@ -94,7 +61,7 @@ button:focus-visible {
     display: none !important;
   }
 
-  .print-area {
+  .printable {
     display: block;
   }
 

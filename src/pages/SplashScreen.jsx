@@ -8,12 +8,12 @@ const SplashScreen = () => {
         <img
           src={logo}
           alt="App Logo"
-          className="w-24 h-24 mx-auto mb-4 animate-pulse drop-shadow-lg"
+          className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 animate-pulse drop-shadow-lg"
         />
-        <h1 className="text-green-800 text-4xl font-extrabold mb-2 tracking-wide">
+        <h1 className="text-green-800 text-4xl md:text-5xl font-extrabold mb-2 tracking-wide">
           AI Fitness & Diet App
         </h1>
-        <p className="text-green-700 text-lg font-medium tracking-wide">
+        <p className="text-green-700 text-lg md:text-xl font-medium tracking-wide">
           Personalized recommendations just for you
         </p>
       </div>

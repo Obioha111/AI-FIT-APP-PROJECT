@@ -11,10 +11,11 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full min-h-screen bg-white">
       {showSplash ? <SplashScreen /> : <UserForm />}
     </div>
   );
 }
 
 export default App;
+
