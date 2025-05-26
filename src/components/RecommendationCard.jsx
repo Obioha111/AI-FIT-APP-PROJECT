@@ -1,74 +1,79 @@
-const RecommendationCard = ({ result, onReset }) => {
+// pages/RecommendationPage.jsx
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import bmiImage from '../assets/bmi.png';
+import mealImage from '../assets/meal.png';
+import workoutImage from '../assets/workout.png';
+import dietImage from '../assets/diet.png';
+
+const RecommendationPage = () => {
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const result = state?.result;
+
+  if (!result) {
+    return (
+      <div className="text-center p-10">
+        <p>No recommendation found. Please fill the form first.</p>
+        <button
+          className="mt-4 px-6 py-2 bg-green-600 text-white rounded"
+          onClick={() => navigate('/')}
+        >
+          Go Back
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl p-6 sm:p-10">
-      <h3 className="text-2xl sm:text-3xl font-bold text-brand text-center mb-10">
-        Your Recommendations
-      </h3>
+    <div className="min-h-screen bg-green-50 py-10 px-4 flex justify-center items-start">
+      <div className="w-full max-w-4xl bg-white shadow-2xl rounded-3xl p-6 md:p-10 space-y-6">
+        <h2 className="text-3xl font-bold text-green-700 text-center">Your Recommendations</h2>
 
-      {/* Section 1: Meal Timing */}
-      <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
-        {/* Text Left */}
-        <div className="flex-1">
-          <h4 className="text-xl font-semibold text-brand mb-2">Meal Timing</h4>
-          <ul className="text-gray-700 list-disc list-inside text-sm sm:text-base">
-            {result.foodTiming.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
+        {/* BMI */}
+        <div className="flex items-center space-x-6">
+          <div className="flex-1 text-green-800 text-lg">
+            <p><strong>BMI:</strong> {result.bmi}</p>
+            <p>{result.bmiComment}</p>
+          </div>
+          <img src={bmiImage} alt="BMI" className="w-24 md:w-32" />
         </div>
 
-        {/* Image Right */}
-        <img
-          src="/images/meal.png"
-          alt="Meal Timing"
-          className="w-40 h-40 object-cover rounded-xl"
-        />
-      </div>
+        {/* Meal Timing */}
+        <div className="flex items-center space-x-6">
+          <div className="flex-1 text-green-800 text-lg">
+            <h3 className="text-xl font-semibold text-green-700">Meal Timing</h3>
+            {result.mealTiming.map((item, i) => (
+              <p key={i}>{item}</p>
+            ))}
+          </div>
+          <img src={mealImage} alt="Meal Timing" className="w-24 md:w-32" />
+        </div>
 
-      {/* Section 2: Workouts + Diet Tips */}
-      <div className="flex flex-col sm:flex-row items-start gap-6 mb-10">
-        {/* Text Left: Workouts + Diet Tips */}
-        <div className="flex-1">
-          <h4 className="text-xl font-semibold text-brand mb-2">Workouts</h4>
-          <ul className="text-gray-700 list-disc list-inside text-sm sm:text-base mb-4">
+        {/* Workouts */}
+        <div className="flex items-center space-x-6">
+          <div className="flex-1 text-green-800 text-lg">
+            <h3 className="text-xl font-semibold text-green-700">Workouts</h3>
             {result.workouts.map((item, i) => (
-              <li key={i}>{item}</li>
+              <p key={i}>{item}</p>
             ))}
-          </ul>
-
-          <h4 className="text-xl font-semibold text-brand mb-2">Diet Tips</h4>
-          <ul className="text-gray-700 list-disc list-inside text-sm sm:text-base">
-            {result.dietTips.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
+          </div>
+          <img src={workoutImage} alt="Workouts" className="w-24 md:w-32" />
         </div>
 
-        {/* Image Right */}
-        <img
-          src="/images/workout.png"
-          alt="Workouts"
-          className="w-40 h-40 object-cover rounded-xl"
-        />
-      </div>
-
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-        <button
-          onClick={() => window.print()}
-          className="bg-brand hover:bg-brand-dark text-white px-6 py-2 rounded-xl text-sm"
-        >
-          Print / Save as PDF
-        </button>
-        <button
-          onClick={onReset}
-          className="bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 px-6 py-2 rounded-xl text-sm"
-        >
-          Reset
-        </button>
+        {/* Diet Tips */}
+        <div className="flex items-center space-x-6">
+          <div className="flex-1 text-green-800 text-lg">
+            <h3 className="text-xl font-semibold text-green-700">Diet Tips</h3>
+            {result.dietTips.map((item, i) => (
+              <p key={i}>{item}</p>
+            ))}
+          </div>
+          <img src={dietImage} alt="Diet Tips" className="w-24 md:w-32" />
+        </div>
       </div>
     </div>
   );
 };
 
-export default RecommendationCard;
+export default RecommendationPage;

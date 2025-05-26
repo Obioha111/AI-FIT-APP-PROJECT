@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import SplashScreen from './pages/SplashScreen';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserForm from './pages/UserForm';
+import RecommendationPage from './pages/RecommendationPage';
+import SplashScreen from './pages/SplashScreen';
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-brand-light flex justify-center items-start py-6 sm:py-12 px-4">
-      {showSplash ? <SplashScreen /> : <UserForm />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={showSplash ? <SplashScreen /> : <UserForm />} />
+        <Route path="/recommendation" element={<RecommendationPage />} />
+      </Routes>
+    </Router>
   );
 }
 
