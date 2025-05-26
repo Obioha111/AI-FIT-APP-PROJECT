@@ -11,11 +11,10 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-light flex justify-center items-start py-6 sm:py-12 px-4">
       {showSplash ? <SplashScreen /> : <UserForm />}
     </div>
   );
 }
 
 export default App;
-
